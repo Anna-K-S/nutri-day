@@ -1,0 +1,9 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Дневник питания",
+  "switchThemeTooltip": "Сменить тему",
+  "tabDiary": "Дневник",
+  "tabHistory": "История",
+  "tabStats": "Статистика",
+  "tabSettings": "Настройки"
+}
