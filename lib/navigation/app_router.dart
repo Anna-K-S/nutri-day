@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nutrition_diary/l10n/app_localizations.dart';
+import 'package:nutrition_diary/resources/icons/app_icons.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
 
@@ -88,11 +89,14 @@ class _RootShell extends StatelessWidget {
           IconButton(
             tooltip: l10n.switchThemeTooltip,
             onPressed: () => scope.setThemeMode(_nextThemeMode(mode)),
-            icon: Icon(switch (mode) {
-              ThemeMode.light => Icons.light_mode_outlined,
-              ThemeMode.dark => Icons.dark_mode_outlined,
-              ThemeMode.system => Icons.settings_suggest_outlined,
-            }),
+            icon: AppIcons.get(
+              switch (mode) {
+                ThemeMode.light => AppIcons.themeSun,
+                ThemeMode.dark => AppIcons.themeMoon,
+                ThemeMode.system => AppIcons.themeAuto,
+              },
+              color: context.appTheme.colorScheme.text.primary,
+            ),
           ),
         ],
       ),
@@ -101,23 +105,31 @@ class _RootShell extends StatelessWidget {
         selectedIndex: tab.index,
         destinations: [
           NavigationDestination(
-            icon: const Icon(Icons.restaurant_menu_outlined),
-            selectedIcon: const Icon(Icons.restaurant_menu),
+            icon: AppIcons.get(AppIcons.diary,
+                color: context.appTheme.colorScheme.text.tertiary),
+            selectedIcon: AppIcons.get(AppIcons.diary,
+                color: context.appTheme.colorScheme.buttons.primary),
             label: l10n.tabDiary,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.history_outlined),
-            selectedIcon: const Icon(Icons.history),
+            icon: AppIcons.get(AppIcons.history,
+                color: context.appTheme.colorScheme.text.tertiary),
+            selectedIcon: AppIcons.get(AppIcons.history,
+                color: context.appTheme.colorScheme.buttons.primary),
             label: l10n.tabHistory,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.bar_chart_outlined),
-            selectedIcon: const Icon(Icons.bar_chart),
+            icon: AppIcons.get(AppIcons.stats,
+                color: context.appTheme.colorScheme.text.tertiary),
+            selectedIcon: AppIcons.get(AppIcons.stats,
+                color: context.appTheme.colorScheme.buttons.primary),
             label: l10n.tabStats,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.settings_outlined),
-            selectedIcon: const Icon(Icons.settings),
+            icon: AppIcons.get(AppIcons.settings,
+                color: context.appTheme.colorScheme.text.tertiary),
+            selectedIcon: AppIcons.get(AppIcons.settings,
+                color: context.appTheme.colorScheme.buttons.primary),
             label: l10n.tabSettings,
           ),
         ],
