@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition_diary/helpers/localization_helper.dart';
 import 'package:nutrition_diary/l10n/app_localizations.dart';
 import 'package:nutrition_diary/navigation/app_router.dart';
+import 'package:nutrition_diary/service/api/food_search_service.dart';
+import 'package:nutrition_diary/service/food_search_scope.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
 
@@ -27,7 +30,10 @@ class _ThemeModeControllerState extends State<_ThemeModeController> {
     return ThemeModeScope(
       themeMode: _themeMode,
       setThemeMode: _setThemeMode,
-      child: const MainApp(),
+      child: FoodSearchScope(
+        service: FoodSearchService(),
+        child: const MainApp(),
+      ),
     );
   }
 }
@@ -40,9 +46,11 @@ class MainApp extends StatelessWidget {
     final scope = ThemeModeScope.of(context);
 
     return MaterialApp.router(
-      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+      onGenerateTitle: (context) =>
+          LocalizationHelper.getLocalizations(context).appTitle,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      localeResolutionCallback: LocalizationHelper.resolveAppLocale,
       themeMode: scope.themeMode,
       darkTheme: buildAppTheme(Brightness.dark),
       theme: buildAppTheme(Brightness.light),

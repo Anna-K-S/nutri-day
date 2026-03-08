@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:nutrition_diary/helpers/localization_helper.dart';
-import 'package:nutrition_diary/l10n/app_localizations.dart';
 import 'package:nutrition_diary/resources/icons/app_icons.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
-import 'package:nutrition_diary/theme/app_theme_typography.dart';
 import 'package:nutrition_diary/theme/app_tokens.dart';
-import 'package:nutrition_diary/theme/colors/app_color_scheme.dart';
 
 class DiaryScreen extends StatelessWidget {
   const DiaryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = LocalizationHelper.getLocalizations(context);
-    final colors = context.appTheme.colorScheme;
+    final localization = LocalizationHelper.getLocalizations(context);
+    final theme = context.appTheme.colorScheme;
     final typography = context.appTheme.typography;
 
     return SafeArea(
@@ -26,25 +23,23 @@ class DiaryScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    l10n.diaryToday,
+                    localization.diaryToday,
                     style: typography.heading2.copyWith(
-                      color: colors.text.primary,
+                      color: theme.text.primary,
                     ),
                   ),
                   const SizedBox(height: AppTokens.spaceXs),
                   Text(
                     _formatDate(context, DateTime.now()),
                     style: typography.small.copyWith(
-                      color: colors.text.tertiary,
+                      color: theme.text.tertiary,
                     ),
                   ),
                   const SizedBox(height: AppTokens.spaceXl),
                   _EmptyState(
-                    message: l10n.diaryEmptyMessage,
+                    message: localization.diaryEmptyMessage,
                     onAdd: () {},
-                    addLabel: l10n.diaryAddMeal,
-                    colors: colors,
-                    typography: typography,
+                    addLabel: localization.diaryAddMeal,
                   ),
                 ],
               ),
@@ -56,22 +51,22 @@ class DiaryScreen extends StatelessWidget {
   }
 
   String _formatDate(BuildContext context, DateTime date) {
-    final l10n = AppLocalizations.of(context)!;
+    final localization = LocalizationHelper.getLocalizations(context);
     final months = [
-      l10n.monthJanuary,
-      l10n.monthFebruary,
-      l10n.monthMarch,
-      l10n.monthApril,
-      l10n.monthMay,
-      l10n.monthJune,
-      l10n.monthJuly,
-      l10n.monthAugust,
-      l10n.monthSeptember,
-      l10n.monthOctober,
-      l10n.monthNovember,
-      l10n.monthDecember,
+      localization.monthJanuary,
+      localization.monthFebruary,
+      localization.monthMarch,
+      localization.monthApril,
+      localization.monthMay,
+      localization.monthJune,
+      localization.monthJuly,
+      localization.monthAugust,
+      localization.monthSeptember,
+      localization.monthOctober,
+      localization.monthNovember,
+      localization.monthDecember,
     ];
-    return l10n.dateFormat(date.day, months[date.month - 1], date.year);
+    return localization.dateFormat(date.day, months[date.month - 1], date.year);
   }
 }
 
@@ -80,18 +75,17 @@ class _EmptyState extends StatelessWidget {
     required this.message,
     required this.onAdd,
     required this.addLabel,
-    required this.colors,
-    required this.typography,
   });
 
   final String message;
   final VoidCallback onAdd;
   final String addLabel;
-  final AppColorScheme colors;
-  final AppThemeTypography typography;
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.appTheme.colorScheme;
+    final typography = context.appTheme.typography;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: AppTokens.spaceXl),
@@ -101,21 +95,21 @@ class _EmptyState extends StatelessWidget {
             Text(
               message,
               textAlign: TextAlign.center,
-              style: typography.body.copyWith(color: colors.text.secondary),
+              style: typography.body.copyWith(color: theme.text.secondary),
             ),
             const SizedBox(height: AppTokens.spaceLg),
             FilledButton.icon(
               onPressed: onAdd,
               icon: AppIcons.get(
                 AppIcons.plus,
-                color: colors.buttons.onPrimary,
+                color: theme.buttons.onPrimary,
                 width: 20,
                 height: 20,
               ),
               label: Text(addLabel),
               style: FilledButton.styleFrom(
-                backgroundColor: colors.buttons.primary,
-                foregroundColor: colors.buttons.onPrimary,
+                backgroundColor: theme.buttons.primary,
+                foregroundColor: theme.buttons.onPrimary,
               ),
             ),
           ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nutrition_diary/l10n/app_localizations.dart';
+import 'package:nutrition_diary/helpers/localization_helper.dart';
 import 'package:nutrition_diary/resources/icons/app_icons.dart';
+import 'package:nutrition_diary/screens/diary_screen/diary_screen.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
 
@@ -16,7 +17,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/diary',
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: _TabContent(tab: AppTab.diary)),
+              const NoTransitionPage(child: DiaryScreen()),
         ),
         GoRoute(
           path: '/history',
@@ -76,18 +77,19 @@ class _RootShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final localization = LocalizationHelper.getLocalizations(context);
+    final theme = context.appTheme.colorScheme;
     final scope = ThemeModeScope.of(context);
     final mode = scope.themeMode;
     final tab = _locationToTab(GoRouterState.of(context).uri.path);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.appTheme.colorScheme.background.background,
-        title: Text(l10n.appTitle),
+        backgroundColor: theme.background.background,
+        title: Text(localization.appTitle),
         actions: [
           IconButton(
-            tooltip: l10n.switchThemeTooltip,
+            tooltip: localization.switchThemeTooltip,
             onPressed: () => scope.setThemeMode(_nextThemeMode(mode)),
             icon: AppIcons.get(
                 switch (mode) {
@@ -106,46 +108,46 @@ class _RootShell extends StatelessWidget {
           NavigationDestination(
             icon: AppIcons.get(
               AppIcons.diary,
-              color: context.appTheme.colorScheme.text.tertiary,
+              color: theme.text.tertiary,
             ),
             selectedIcon: AppIcons.get(
               AppIcons.diary,
-              color: context.appTheme.colorScheme.buttons.primary,
+              color: theme.buttons.primary,
             ),
-            label: l10n.tabDiary,
+            label: localization.tabDiary,
           ),
           NavigationDestination(
             icon: AppIcons.get(
               AppIcons.history,
-              color: context.appTheme.colorScheme.text.tertiary,
+              color: theme.text.tertiary,
             ),
             selectedIcon: AppIcons.get(
               AppIcons.history,
-              color: context.appTheme.colorScheme.buttons.primary,
+              color: theme.buttons.primary,
             ),
-            label: l10n.tabHistory,
+            label: localization.tabHistory,
           ),
           NavigationDestination(
             icon: AppIcons.get(
               AppIcons.stats,
-              color: context.appTheme.colorScheme.text.tertiary,
+              color: theme.text.tertiary,
             ),
             selectedIcon: AppIcons.get(
               AppIcons.stats,
-              color: context.appTheme.colorScheme.buttons.primary,
+              color: theme.buttons.primary,
             ),
-            label: l10n.tabStats,
+            label: localization.tabStats,
           ),
           NavigationDestination(
             icon: AppIcons.get(
               AppIcons.settings,
-              color: context.appTheme.colorScheme.text.tertiary,
+              color: theme.text.tertiary,
             ),
             selectedIcon: AppIcons.get(
               AppIcons.settings,
-              color: context.appTheme.colorScheme.buttons.primary,
+              color: theme.buttons.primary,
             ),
-            label: l10n.tabSettings,
+            label: localization.tabSettings,
           ),
         ],
         onDestinationSelected: (index) {
@@ -167,16 +169,19 @@ class _TabContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final localization = LocalizationHelper.getLocalizations(context);
+    final theme = context.appTheme.colorScheme;
+    final typography = context.appTheme.typography;
     final title = switch (tab) {
-      AppTab.diary => l10n.tabDiary,
-      AppTab.history => l10n.tabHistory,
-      AppTab.stats => l10n.tabStats,
-      AppTab.settings => l10n.tabSettings,
+      AppTab.diary => localization.tabDiary,
+      AppTab.history => localization.tabHistory,
+      AppTab.stats => localization.tabStats,
+      AppTab.settings => localization.tabSettings,
     };
 
     return Center(
-      child: Text(title, style: Theme.of(context).textTheme.headlineLarge),
+      child: Text(title,
+          style: typography.heading1.copyWith(color: theme.text.primary)),
     );
   }
 }
