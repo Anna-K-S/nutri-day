@@ -23,14 +23,15 @@ class AppThemeTypography {
   });
 
   factory AppThemeTypography.from(AppColorScheme scheme) {
+    const base = AppTypography();
     return AppThemeTypography(
-      heading1: AppTypography.heading1(color: scheme.text.primary),
-      heading2: AppTypography.heading2(color: scheme.text.primary),
-      bodyLarge: AppTypography.bodyLarge(color: scheme.text.primary),
-      body: AppTypography.body(color: scheme.text.primary),
-      label: AppTypography.label(color: scheme.text.secondary),
-      small: AppTypography.small(color: scheme.text.tertiary),
-      button: AppTypography.button(color: scheme.buttons.onPrimary),
+      heading1: base.header.h1.copyWith(color: scheme.text.primary),
+      heading2: base.header.h2.copyWith(color: scheme.text.primary),
+      bodyLarge: base.body.semiBoldL.copyWith(color: scheme.text.primary),
+      body: base.body.regularM.copyWith(color: scheme.text.primary),
+      label: base.body.mediumS.copyWith(color: scheme.text.secondary),
+      small: base.body.regularXS.copyWith(color: scheme.text.tertiary),
+      button: base.button.buttonM.copyWith(color: scheme.buttons.onPrimary),
     );
   }
 

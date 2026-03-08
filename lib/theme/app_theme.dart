@@ -97,6 +97,7 @@ abstract class AppTheme {
 
   static final AppThemeExtension _light = AppThemeExtension(
     colorScheme: _lightScheme,
+
     typography: AppThemeTypography.from(_lightScheme),
   );
 
