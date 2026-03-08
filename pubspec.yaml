@@ -26,6 +26,7 @@ dev_dependencies:
   flutter_gen_runner: ^5.4.0
   flutter_lints: ^6.0.0
   freezed: ^3.2.5
+  json_serializable: ^6.7.1
 
 flutter_gen:
   output: lib/gen/

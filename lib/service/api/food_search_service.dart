@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:nutrition_diary/models/food_item.dart';
+import 'package:nutrition_diary/models/off/product.dart';
+import 'package:nutrition_diary/models/off/search_response.dart';
 
-/// Клиент [Open Food Facts](https://world.openfoodfacts.org/) API.
-/// Поиск продуктов без API-ключей (открытые данные).
 class FoodSearchService {
   FoodSearchService([Dio? dio])
       : _dio = dio ??
@@ -16,7 +15,8 @@ class FoodSearchService {
 
   static const String _searchPath = '/api/v2/search';
 
-  Future<List<FoodItem>> search(String query) async {
+  /// Поиск продуктов по названию
+  Future<List<Product>> search(String query) async {
     if (query.trim().isEmpty) return [];
 
     final response = await _dio.get<Map<String, dynamic>>(
@@ -31,19 +31,14 @@ class FoodSearchService {
     final data = response.data;
     if (data == null) return [];
 
-    final List<dynamic> products = data['products'] ?? [];
-    final List<FoodItem> result = [];
-    for (var i = 0; i < products.length; i++) {
-      final product = products[i] as Map<String, dynamic>?;
-      if (product == null) continue;
-      final item = FoodItem.fromOpenFoodFacts(product, i);
-      if (item.name.isNotEmpty) result.add(item);
-    }
-    return result;
+    final res = SearchResponse.fromJson(data);
+
+    // Возвращаем только продукты с именем
+    return res.products.where((p) => p.productName.isNotEmpty).toList();
   }
 
-  /// Получить продукт по штрихкоду.
-  Future<FoodItem?> getByBarcode(String barcode) async {
+  /// Получить продукт по штрихкоду
+  Future<Product?> getByBarcode(String barcode) async {
     final code = barcode.trim();
     if (code.isEmpty) return null;
 
@@ -55,12 +50,11 @@ class FoodSearchService {
     );
 
     final data = response.data;
-    if (data == null) return null;
-    if (data['status'] != 1) return null;
+    if (data == null || data['status'] != 1) return null;
 
-    final product = data['product'] as Map<String, dynamic>?;
-    if (product == null) return null;
+    final productJson = data['product'] as Map<String, dynamic>?;
+    if (productJson == null) return null;
 
-    return FoodItem.fromOpenFoodFacts(product, 0);
+    return Product.fromJson(productJson);
   }
 }
