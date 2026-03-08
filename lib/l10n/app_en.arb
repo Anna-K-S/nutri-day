@@ -5,5 +5,98 @@
   "tabDiary": "Diary",
   "tabHistory": "History",
   "tabStats": "Stats",
-  "tabSettings": "Settings"
+  "tabSettings": "Settings",
+
+  "welcomeTitle": "Calorie calculator",
+  "goalTitle": "Your goal",
+  "goalSubtitle": "Choose what you want to achieve",
+  "goalLose": "Weight loss",
+  "goalLoseSubtitle": "Calorie deficit",
+  "goalMaintain": "Maintain weight",
+  "goalMaintainSubtitle": "Keep current weight",
+  "goalGain": "Weight gain",
+  "goalGainSubtitle": "Calorie surplus",
+  "buttonNext": "Next",
+
+  "personalTitle": "About you",
+  "personalSubtitle": "Gender, age and height for Mifflin–St Jeor formula",
+  "genderLabel": "Gender",
+  "genderMale": "Male",
+  "genderFemale": "Female",
+  "ageLabel": "Age (years)",
+  "ageHint": "25",
+  "heightLabel": "Height (cm)",
+  "heightHint": "170",
+
+  "weightTitle": "Weight",
+  "weightSubtitle": "Current and desired weight in kg",
+  "currentWeightLabel": "Current weight (kg)",
+  "currentWeightHint": "70",
+  "desiredWeightLabel": "Desired weight (kg)",
+  "desiredWeightHint": "65",
+
+  "activityTitle": "Activity level",
+  "activitySubtitle": "How often you move and exercise",
+  "activityMinimal": "Minimal",
+  "activityMinimalDesc": "Sedentary, almost no exercise",
+  "activityLow": "Low",
+  "activityLowDesc": "1–3 workouts per week",
+  "activityModerate": "Moderate",
+  "activityModerateDesc": "3–5 workouts per week",
+  "activityHigh": "High",
+  "activityHighDesc": "6–7 workouts per week",
+  "activityVeryHigh": "Very high",
+  "activityVeryHighDesc": "Heavy training, physical work",
+  "buttonCalculate": "Calculate",
+
+  "resultTitle": "Your calorie norm",
+  "resultSubtitle": "Calculated using Mifflin–St Jeor formula",
+  "resultRecommended": "Recommended calories",
+  "resultRecommendedGoalLose": "Deficit for weight loss",
+  "resultRecommendedGoalMaintain": "Maintain weight",
+  "resultRecommendedGoalGain": "Surplus for weight gain",
+  "resultBmr": "Basal metabolic rate (BMR)",
+  "resultBmrSubtitle": "At rest",
+  "resultTdee": "Expenditure with activity (TDEE)",
+  "resultTdeeSubtitle": "Based on activity level",
+  "resultKcalPerDay": "{calories} kcal/day",
+  "@resultKcalPerDay": {
+    "placeholders": {
+      "calories": {
+        "type": "int"
+      }
+    }
+  },
+  "buttonDone": "Done",
+
+  "diaryToday": "Today",
+  "diaryEmptyMessage": "No entries yet.\nAdd your first meal.",
+  "diaryAddMeal": "Add meal",
+
+  "monthJanuary": "January",
+  "monthFebruary": "February",
+  "monthMarch": "March",
+  "monthApril": "April",
+  "monthMay": "May",
+  "monthJune": "June",
+  "monthJuly": "July",
+  "monthAugust": "August",
+  "monthSeptember": "September",
+  "monthOctober": "October",
+  "monthNovember": "November",
+  "monthDecember": "December",
+  "dateFormat": "{day} {month} {year}",
+  "@dateFormat": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "int"
+      }
+    }
+  }
 }
