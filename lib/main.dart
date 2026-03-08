@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition_diary/l10n/app_localizations.dart';
 import 'package:nutrition_diary/navigation/app_router.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
@@ -39,6 +40,9 @@ class MainApp extends StatelessWidget {
     final scope = ThemeModeScope.of(context);
 
     return MaterialApp.router(
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       themeMode: scope.themeMode,
       darkTheme: buildAppTheme(Brightness.dark),
       theme: buildAppTheme(Brightness.light),

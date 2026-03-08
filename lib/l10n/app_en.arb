@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "appTitle": "Nutrition Diary",
+  "switchThemeTooltip": "Switch theme",
+  "tabDiary": "Diary",
+  "tabHistory": "History",
+  "tabStats": "Stats",
+  "tabSettings": "Settings"
+}

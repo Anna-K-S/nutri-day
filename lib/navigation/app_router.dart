@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nutrition_diary/l10n/app_localizations.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
 
@@ -14,22 +15,22 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/diary',
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: _TabContent(title: 'Diary')),
+              const NoTransitionPage(child: _TabContent(tab: AppTab.diary)),
         ),
         GoRoute(
           path: '/history',
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: _TabContent(title: 'History')),
+              const NoTransitionPage(child: _TabContent(tab: AppTab.history)),
         ),
         GoRoute(
           path: '/stats',
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: _TabContent(title: 'Stats')),
+              const NoTransitionPage(child: _TabContent(tab: AppTab.stats)),
         ),
         GoRoute(
           path: '/settings',
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: _TabContent(title: 'Settings')),
+              const NoTransitionPage(child: _TabContent(tab: AppTab.settings)),
         ),
       ],
     ),
@@ -74,6 +75,7 @@ class _RootShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final scope = ThemeModeScope.of(context);
     final mode = scope.themeMode;
     final tab = _locationToTab(GoRouterState.of(context).uri.path);
@@ -81,10 +83,10 @@ class _RootShell extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: context.appTheme.colorScheme.background.background,
-        title: const Text('Nutrition Diary'),
+        title: Text(l10n.appTitle),
         actions: [
           IconButton(
-            tooltip: 'Switch theme',
+            tooltip: l10n.switchThemeTooltip,
             onPressed: () => scope.setThemeMode(_nextThemeMode(mode)),
             icon: Icon(switch (mode) {
               ThemeMode.light => Icons.light_mode_outlined,
@@ -97,26 +99,26 @@ class _RootShell extends StatelessWidget {
       body: child,
       bottomNavigationBar: NavigationBar(
         selectedIndex: tab.index,
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.restaurant_menu_outlined),
-            selectedIcon: Icon(Icons.restaurant_menu),
-            label: 'Diary',
+            icon: const Icon(Icons.restaurant_menu_outlined),
+            selectedIcon: const Icon(Icons.restaurant_menu),
+            label: l10n.tabDiary,
           ),
           NavigationDestination(
-            icon: Icon(Icons.history_outlined),
-            selectedIcon: Icon(Icons.history),
-            label: 'History',
+            icon: const Icon(Icons.history_outlined),
+            selectedIcon: const Icon(Icons.history),
+            label: l10n.tabHistory,
           ),
           NavigationDestination(
-            icon: Icon(Icons.bar_chart_outlined),
-            selectedIcon: Icon(Icons.bar_chart),
-            label: 'Stats',
+            icon: const Icon(Icons.bar_chart_outlined),
+            selectedIcon: const Icon(Icons.bar_chart),
+            label: l10n.tabStats,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            selectedIcon: const Icon(Icons.settings),
+            label: l10n.tabSettings,
           ),
         ],
         onDestinationSelected: (index) {
@@ -132,12 +134,20 @@ class _RootShell extends StatelessWidget {
 }
 
 class _TabContent extends StatelessWidget {
-  const _TabContent({required this.title});
+  const _TabContent({required this.tab});
 
-  final String title;
+  final AppTab tab;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final title = switch (tab) {
+      AppTab.diary => l10n.tabDiary,
+      AppTab.history => l10n.tabHistory,
+      AppTab.stats => l10n.tabStats,
+      AppTab.settings => l10n.tabSettings,
+    };
+
     return Center(
       child: Text(title, style: Theme.of(context).textTheme.headlineLarge),
     );
