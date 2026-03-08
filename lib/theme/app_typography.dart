@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition_diary/resourses/fonts/fonts.dart';
 
 abstract class AppTypography {
   AppTypography._();
 
+  static const fontFamily = FontFamily.raleway;
+
   static TextStyle heading1({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 30,
     fontWeight: FontWeight.w700,
@@ -12,6 +16,7 @@ abstract class AppTypography {
   );
 
   static TextStyle heading2({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 24,
     fontWeight: FontWeight.w600,
@@ -20,6 +25,7 @@ abstract class AppTypography {
   );
 
   static TextStyle bodyLarge({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 18,
     fontWeight: FontWeight.w500,
@@ -28,6 +34,7 @@ abstract class AppTypography {
   );
 
   static TextStyle body({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -36,6 +43,7 @@ abstract class AppTypography {
   );
 
   static TextStyle label({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 14,
     fontWeight: FontWeight.w500,
@@ -44,6 +52,7 @@ abstract class AppTypography {
   );
 
   static TextStyle small({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -52,6 +61,7 @@ abstract class AppTypography {
   );
 
   static TextStyle button({required Color color}) => TextStyle(
+    fontFamily: fontFamily,
     color: color,
     fontSize: 16,
     fontWeight: FontWeight.w600,

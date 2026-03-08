@@ -67,6 +67,7 @@ class _HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: context.appTheme.colorScheme.background.background,
         title: const Text('Nutrition Diary'),
         actions: [
           IconButton(

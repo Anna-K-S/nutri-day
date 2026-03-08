@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app_typography.dart';
 import 'app_theme_typography.dart';
 import 'app_tokens.dart';
 import 'colors/app_colors.dart';
@@ -158,14 +159,17 @@ abstract class AppTheme {
 
   static ThemeData dark() => _themeData(Brightness.dark, _dark);
 
-  static ThemeData _themeData(Brightness brightness, AppThemeExtension appTheme) {
+  static ThemeData _themeData(
+    Brightness brightness,
+    AppThemeExtension appTheme,
+  ) {
     final scheme = appTheme.colorScheme;
     final text = appTheme.typography;
     return ThemeData(
       useMaterial3: true,
       brightness: brightness,
       scaffoldBackgroundColor: scheme.background.background,
-      fontFamily: 'Inter',
+      fontFamily: AppTypography.fontFamily,
       colorScheme: ColorScheme(
         brightness: brightness,
         primary: scheme.buttons.primary,
@@ -205,7 +209,8 @@ abstract class AppTheme {
 }
 
 extension AppThemeBuildContextX on BuildContext {
-  AppThemeExtension get appTheme => Theme.of(this).extension<AppThemeExtension>()!;
+  AppThemeExtension get appTheme =>
+      Theme.of(this).extension<AppThemeExtension>()!;
   AppColorScheme get appColors => appTheme.colorScheme;
   AppThemeTypography get appTypography => appTheme.typography;
 }
