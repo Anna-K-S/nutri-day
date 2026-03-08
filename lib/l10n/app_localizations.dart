@@ -130,6 +130,402 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings'**
   String get tabSettings;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie calculator'**
+  String get welcomeTitle;
+
+  /// No description provided for @goalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your goal'**
+  String get goalTitle;
+
+  /// No description provided for @goalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what you want to achieve'**
+  String get goalSubtitle;
+
+  /// No description provided for @goalLose.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight loss'**
+  String get goalLose;
+
+  /// No description provided for @goalLoseSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie deficit'**
+  String get goalLoseSubtitle;
+
+  /// No description provided for @goalMaintain.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintain weight'**
+  String get goalMaintain;
+
+  /// No description provided for @goalMaintainSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep current weight'**
+  String get goalMaintainSubtitle;
+
+  /// No description provided for @goalGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight gain'**
+  String get goalGain;
+
+  /// No description provided for @goalGainSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie surplus'**
+  String get goalGainSubtitle;
+
+  /// No description provided for @buttonNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get buttonNext;
+
+  /// No description provided for @personalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About you'**
+  String get personalTitle;
+
+  /// No description provided for @personalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender, age and height for Mifflin–St Jeor formula'**
+  String get personalSubtitle;
+
+  /// No description provided for @genderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get genderLabel;
+
+  /// No description provided for @genderMale.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get genderMale;
+
+  /// No description provided for @genderFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get genderFemale;
+
+  /// No description provided for @ageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Age (years)'**
+  String get ageLabel;
+
+  /// No description provided for @ageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'25'**
+  String get ageHint;
+
+  /// No description provided for @heightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (cm)'**
+  String get heightLabel;
+
+  /// No description provided for @heightHint.
+  ///
+  /// In en, this message translates to:
+  /// **'170'**
+  String get heightHint;
+
+  /// No description provided for @weightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weightTitle;
+
+  /// No description provided for @weightSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Current and desired weight in kg'**
+  String get weightSubtitle;
+
+  /// No description provided for @currentWeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Current weight (kg)'**
+  String get currentWeightLabel;
+
+  /// No description provided for @currentWeightHint.
+  ///
+  /// In en, this message translates to:
+  /// **'70'**
+  String get currentWeightHint;
+
+  /// No description provided for @desiredWeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Desired weight (kg)'**
+  String get desiredWeightLabel;
+
+  /// No description provided for @desiredWeightHint.
+  ///
+  /// In en, this message translates to:
+  /// **'65'**
+  String get desiredWeightHint;
+
+  /// No description provided for @activityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity level'**
+  String get activityTitle;
+
+  /// No description provided for @activitySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How often you move and exercise'**
+  String get activitySubtitle;
+
+  /// No description provided for @activityMinimal.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal'**
+  String get activityMinimal;
+
+  /// No description provided for @activityMinimalDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Sedentary, almost no exercise'**
+  String get activityMinimalDesc;
+
+  /// No description provided for @activityLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get activityLow;
+
+  /// No description provided for @activityLowDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'1–3 workouts per week'**
+  String get activityLowDesc;
+
+  /// No description provided for @activityModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get activityModerate;
+
+  /// No description provided for @activityModerateDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'3–5 workouts per week'**
+  String get activityModerateDesc;
+
+  /// No description provided for @activityHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get activityHigh;
+
+  /// No description provided for @activityHighDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'6–7 workouts per week'**
+  String get activityHighDesc;
+
+  /// No description provided for @activityVeryHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Very high'**
+  String get activityVeryHigh;
+
+  /// No description provided for @activityVeryHighDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy training, physical work'**
+  String get activityVeryHighDesc;
+
+  /// No description provided for @buttonCalculate.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate'**
+  String get buttonCalculate;
+
+  /// No description provided for @resultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your calorie norm'**
+  String get resultTitle;
+
+  /// No description provided for @resultSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculated using Mifflin–St Jeor formula'**
+  String get resultSubtitle;
+
+  /// No description provided for @resultRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended calories'**
+  String get resultRecommended;
+
+  /// No description provided for @resultRecommendedGoalLose.
+  ///
+  /// In en, this message translates to:
+  /// **'Deficit for weight loss'**
+  String get resultRecommendedGoalLose;
+
+  /// No description provided for @resultRecommendedGoalMaintain.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintain weight'**
+  String get resultRecommendedGoalMaintain;
+
+  /// No description provided for @resultRecommendedGoalGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Surplus for weight gain'**
+  String get resultRecommendedGoalGain;
+
+  /// No description provided for @resultBmr.
+  ///
+  /// In en, this message translates to:
+  /// **'Basal metabolic rate (BMR)'**
+  String get resultBmr;
+
+  /// No description provided for @resultBmrSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'At rest'**
+  String get resultBmrSubtitle;
+
+  /// No description provided for @resultTdee.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenditure with activity (TDEE)'**
+  String get resultTdee;
+
+  /// No description provided for @resultTdeeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on activity level'**
+  String get resultTdeeSubtitle;
+
+  /// No description provided for @resultKcalPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{calories} kcal/day'**
+  String resultKcalPerDay(int calories);
+
+  /// No description provided for @buttonDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get buttonDone;
+
+  /// No description provided for @diaryToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get diaryToday;
+
+  /// No description provided for @diaryEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No entries yet.\nAdd your first meal.'**
+  String get diaryEmptyMessage;
+
+  /// No description provided for @diaryAddMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Add meal'**
+  String get diaryAddMeal;
+
+  /// No description provided for @monthJanuary.
+  ///
+  /// In en, this message translates to:
+  /// **'January'**
+  String get monthJanuary;
+
+  /// No description provided for @monthFebruary.
+  ///
+  /// In en, this message translates to:
+  /// **'February'**
+  String get monthFebruary;
+
+  /// No description provided for @monthMarch.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get monthMarch;
+
+  /// No description provided for @monthApril.
+  ///
+  /// In en, this message translates to:
+  /// **'April'**
+  String get monthApril;
+
+  /// No description provided for @monthMay.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get monthMay;
+
+  /// No description provided for @monthJune.
+  ///
+  /// In en, this message translates to:
+  /// **'June'**
+  String get monthJune;
+
+  /// No description provided for @monthJuly.
+  ///
+  /// In en, this message translates to:
+  /// **'July'**
+  String get monthJuly;
+
+  /// No description provided for @monthAugust.
+  ///
+  /// In en, this message translates to:
+  /// **'August'**
+  String get monthAugust;
+
+  /// No description provided for @monthSeptember.
+  ///
+  /// In en, this message translates to:
+  /// **'September'**
+  String get monthSeptember;
+
+  /// No description provided for @monthOctober.
+  ///
+  /// In en, this message translates to:
+  /// **'October'**
+  String get monthOctober;
+
+  /// No description provided for @monthNovember.
+  ///
+  /// In en, this message translates to:
+  /// **'November'**
+  String get monthNovember;
+
+  /// No description provided for @monthDecember.
+  ///
+  /// In en, this message translates to:
+  /// **'December'**
+  String get monthDecember;
+
+  /// No description provided for @dateFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'{day} {month} {year}'**
+  String dateFormat(int day, String month, int year);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

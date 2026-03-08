@@ -90,13 +90,12 @@ class _RootShell extends StatelessWidget {
             tooltip: l10n.switchThemeTooltip,
             onPressed: () => scope.setThemeMode(_nextThemeMode(mode)),
             icon: AppIcons.get(
-              switch (mode) {
-                ThemeMode.light => AppIcons.themeSun,
-                ThemeMode.dark => AppIcons.themeMoon,
-                ThemeMode.system => AppIcons.themeAuto,
-              },
-              color: context.appTheme.colorScheme.text.primary,
-            ),
+                switch (mode) {
+                  ThemeMode.light => AppIcons.themeSun,
+                  ThemeMode.dark => AppIcons.themeMoon,
+                  ThemeMode.system => AppIcons.themeAuto,
+                },
+                color: context.appTheme.colorScheme.text.primary),
           ),
         ],
       ),
@@ -105,31 +104,47 @@ class _RootShell extends StatelessWidget {
         selectedIndex: tab.index,
         destinations: [
           NavigationDestination(
-            icon: AppIcons.get(AppIcons.diary,
-                color: context.appTheme.colorScheme.text.tertiary),
-            selectedIcon: AppIcons.get(AppIcons.diary,
-                color: context.appTheme.colorScheme.buttons.primary),
+            icon: AppIcons.get(
+              AppIcons.diary,
+              color: context.appTheme.colorScheme.text.tertiary,
+            ),
+            selectedIcon: AppIcons.get(
+              AppIcons.diary,
+              color: context.appTheme.colorScheme.buttons.primary,
+            ),
             label: l10n.tabDiary,
           ),
           NavigationDestination(
-            icon: AppIcons.get(AppIcons.history,
-                color: context.appTheme.colorScheme.text.tertiary),
-            selectedIcon: AppIcons.get(AppIcons.history,
-                color: context.appTheme.colorScheme.buttons.primary),
+            icon: AppIcons.get(
+              AppIcons.history,
+              color: context.appTheme.colorScheme.text.tertiary,
+            ),
+            selectedIcon: AppIcons.get(
+              AppIcons.history,
+              color: context.appTheme.colorScheme.buttons.primary,
+            ),
             label: l10n.tabHistory,
           ),
           NavigationDestination(
-            icon: AppIcons.get(AppIcons.stats,
-                color: context.appTheme.colorScheme.text.tertiary),
-            selectedIcon: AppIcons.get(AppIcons.stats,
-                color: context.appTheme.colorScheme.buttons.primary),
+            icon: AppIcons.get(
+              AppIcons.stats,
+              color: context.appTheme.colorScheme.text.tertiary,
+            ),
+            selectedIcon: AppIcons.get(
+              AppIcons.stats,
+              color: context.appTheme.colorScheme.buttons.primary,
+            ),
             label: l10n.tabStats,
           ),
           NavigationDestination(
-            icon: AppIcons.get(AppIcons.settings,
-                color: context.appTheme.colorScheme.text.tertiary),
-            selectedIcon: AppIcons.get(AppIcons.settings,
-                color: context.appTheme.colorScheme.buttons.primary),
+            icon: AppIcons.get(
+              AppIcons.settings,
+              color: context.appTheme.colorScheme.text.tertiary,
+            ),
+            selectedIcon: AppIcons.get(
+              AppIcons.settings,
+              color: context.appTheme.colorScheme.buttons.primary,
+            ),
             label: l10n.tabSettings,
           ),
         ],

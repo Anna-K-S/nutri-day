@@ -7,6 +7,10 @@ abstract class AppIcons {
 
   static const String _navBar = 'assets/icons/nav_bar';
   static const String _themeMode = 'assets/icons/theme_mode';
+  static const String _root = 'assets/icons';
+
+  // Common
+  static const String plus = '$_root/plus.svg';
 
   // Nav bar
   static const String diary = '$_navBar/fork-knife.svg';

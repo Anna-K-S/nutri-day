@@ -20,8 +20,17 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/nav_bar
   $AssetsIconsNavBarGen get navBar => const $AssetsIconsNavBarGen();
 
+  /// File path: assets/icons/plus.svg
+  SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
+
   /// Directory path: assets/icons/theme_mode
   $AssetsIconsThemeModeGen get themeMode => const $AssetsIconsThemeModeGen();
+
+  /// File path: assets/icons/trash.svg
+  SvgGenImage get trash => const SvgGenImage('assets/icons/trash.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [plus, trash];
 }
 
 class $AssetsIconsNavBarGen {
@@ -70,11 +79,17 @@ class Assets {
 }
 
 class SvgGenImage {
-  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}})
-    : _isVecFormat = false;
+  const SvgGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = false;
 
-  const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}})
-    : _isVecFormat = true;
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = true;
 
   final String _assetName;
   final Size? size;
@@ -130,8 +145,7 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      colorFilter:
-          colorFilter ??
+      colorFilter: colorFilter ??
           (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
