@@ -449,6 +449,66 @@ abstract class AppLocalizations {
   /// **'Add meal'**
   String get diaryAddMeal;
 
+  /// No description provided for @searchProductTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Product search'**
+  String get searchProductTitle;
+
+  /// No description provided for @searchProductHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Name or barcode'**
+  String get searchProductHint;
+
+  /// No description provided for @searchProductCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get searchProductCamera;
+
+  /// No description provided for @searchProductSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchProductSearch;
+
+  /// No description provided for @searchProductClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get searchProductClear;
+
+  /// No description provided for @searchProductPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a query or scan a barcode'**
+  String get searchProductPrompt;
+
+  /// No description provided for @searchProductEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing found'**
+  String get searchProductEmpty;
+
+  /// No description provided for @searchProductError.
+  ///
+  /// In en, this message translates to:
+  /// **'Search failed. Try again.'**
+  String get searchProductError;
+
+  /// No description provided for @searchProductScanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode scanning'**
+  String get searchProductScanTitle;
+
+  /// No description provided for @searchProductCodeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Code: {code}'**
+  String searchProductCodeLabel(String code);
+
   /// No description provided for @monthJanuary.
   ///
   /// In en, this message translates to:
