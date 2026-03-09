@@ -20,9 +20,9 @@ class ProductList extends StatelessWidget {
       separatorBuilder: (_, __) => const SizedBox(height: AppTokens.spaceSm),
       itemBuilder: (context, index) {
         final product = products[index];
-        final title = (product.brand == null || product.brand!.isEmpty)
+        final title = (product.brands == null || product.brands!.isEmpty)
             ? product.productName
-            : '${product.brand} ${product.productName}';
+            : '${product.brands} ${product.productName}';
         return Card(
           child: Padding(
             padding: const EdgeInsets.all(AppTokens.spaceLg),

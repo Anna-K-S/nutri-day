@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:nutrition_diary/data/dto/off/off_product_dto.dart';
-import 'package:nutrition_diary/data/dto/off/off_search_response_dto.dart';
-import 'package:nutrition_diary/data/mappers/off_search_mapper.dart';
 import 'package:nutrition_diary/data/models/product.dart';
+import 'package:nutrition_diary/data/models/search_response.dart';
 
 class FoodSearchService {
   FoodSearchService([Dio? dio])
@@ -37,7 +35,7 @@ class FoodSearchService {
     final data = response.data;
     if (data == null) return [];
 
-    final res = OffSearchResponseDto.fromJson(data).toModel();
+    final res = SearchResponse.fromJson(data);
 
     // Возвращаем только продукты с именем
     return res.products.where((p) => p.productName.isNotEmpty).toList();
@@ -62,6 +60,6 @@ class FoodSearchService {
     final productJson = data['product'] as Map<String, dynamic>?;
     if (productJson == null) return null;
 
-    return OffProductDto.fromJson(productJson).toModel();
+    return Product.fromJson(productJson);
   }
 }

@@ -14,10 +14,18 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Product {
-  String get code;
+  @JsonKey(name: 'product_name')
   String get productName;
-  String? get brand;
+  @JsonKey(name: 'brands', fromJson: _primaryBrandFromJson)
+  String? get brands;
+  @JsonKey(name: 'image_url')
   String? get imageUrl;
+  @JsonKey(name: 'image_front_small_url')
+  String? get imageFrontSmallUrl;
+  @JsonKey(name: 'image_front_url')
+  String? get imageFrontUrl;
+  @JsonKey(fromJson: _codeFromJson)
+  String get code;
   Nutriments? get nutriments;
 
   /// Create a copy of Product
@@ -35,24 +43,28 @@ mixin _$Product {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Product &&
-            (identical(other.code, code) || other.code == code) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
-            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.brands, brands) || other.brands == brands) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
+            (identical(other.imageFrontSmallUrl, imageFrontSmallUrl) ||
+                other.imageFrontSmallUrl == imageFrontSmallUrl) &&
+            (identical(other.imageFrontUrl, imageFrontUrl) ||
+                other.imageFrontUrl == imageFrontUrl) &&
+            (identical(other.code, code) || other.code == code) &&
             (identical(other.nutriments, nutriments) ||
                 other.nutriments == nutriments));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, code, productName, brand, imageUrl, nutriments);
+  int get hashCode => Object.hash(runtimeType, productName, brands, imageUrl,
+      imageFrontSmallUrl, imageFrontUrl, code, nutriments);
 
   @override
   String toString() {
-    return 'Product(code: $code, productName: $productName, brand: $brand, imageUrl: $imageUrl, nutriments: $nutriments)';
+    return 'Product(productName: $productName, brands: $brands, imageUrl: $imageUrl, imageFrontSmallUrl: $imageFrontSmallUrl, imageFrontUrl: $imageFrontUrl, code: $code, nutriments: $nutriments)';
   }
 }
 
@@ -62,10 +74,12 @@ abstract mixin class $ProductCopyWith<$Res> {
       _$ProductCopyWithImpl;
   @useResult
   $Res call(
-      {String code,
-      String productName,
-      String? brand,
-      String? imageUrl,
+      {@JsonKey(name: 'product_name') String productName,
+      @JsonKey(name: 'brands', fromJson: _primaryBrandFromJson) String? brands,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image_front_small_url') String? imageFrontSmallUrl,
+      @JsonKey(name: 'image_front_url') String? imageFrontUrl,
+      @JsonKey(fromJson: _codeFromJson) String code,
       Nutriments? nutriments});
 
   $NutrimentsCopyWith<$Res>? get nutriments;
@@ -83,29 +97,39 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = null,
     Object? productName = null,
-    Object? brand = freezed,
+    Object? brands = freezed,
     Object? imageUrl = freezed,
+    Object? imageFrontSmallUrl = freezed,
+    Object? imageFrontUrl = freezed,
+    Object? code = null,
     Object? nutriments = freezed,
   }) {
     return _then(_self.copyWith(
-      code: null == code
-          ? _self.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
       productName: null == productName
           ? _self.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String,
-      brand: freezed == brand
-          ? _self.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      brands: freezed == brands
+          ? _self.brands
+          : brands // ignore: cast_nullable_to_non_nullable
               as String?,
       imageUrl: freezed == imageUrl
           ? _self.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageFrontSmallUrl: freezed == imageFrontSmallUrl
+          ? _self.imageFrontSmallUrl
+          : imageFrontSmallUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageFrontUrl: freezed == imageFrontUrl
+          ? _self.imageFrontUrl
+          : imageFrontUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: null == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
       nutriments: freezed == nutriments
           ? _self.nutriments
           : nutriments // ignore: cast_nullable_to_non_nullable
@@ -132,22 +156,34 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
 @JsonSerializable()
 class _Product implements Product {
   const _Product(
-      {required this.code,
-      required this.productName,
-      this.brand,
-      this.imageUrl,
+      {@JsonKey(name: 'product_name') this.productName = '',
+      @JsonKey(name: 'brands', fromJson: _primaryBrandFromJson) this.brands,
+      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'image_front_small_url') this.imageFrontSmallUrl,
+      @JsonKey(name: 'image_front_url') this.imageFrontUrl,
+      @JsonKey(fromJson: _codeFromJson) this.code = '-',
       this.nutriments});
   factory _Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
 
   @override
-  final String code;
-  @override
+  @JsonKey(name: 'product_name')
   final String productName;
   @override
-  final String? brand;
+  @JsonKey(name: 'brands', fromJson: _primaryBrandFromJson)
+  final String? brands;
   @override
+  @JsonKey(name: 'image_url')
   final String? imageUrl;
+  @override
+  @JsonKey(name: 'image_front_small_url')
+  final String? imageFrontSmallUrl;
+  @override
+  @JsonKey(name: 'image_front_url')
+  final String? imageFrontUrl;
+  @override
+  @JsonKey(fromJson: _codeFromJson)
+  final String code;
   @override
   final Nutriments? nutriments;
 
@@ -171,24 +207,28 @@ class _Product implements Product {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Product &&
-            (identical(other.code, code) || other.code == code) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
-            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.brands, brands) || other.brands == brands) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
+            (identical(other.imageFrontSmallUrl, imageFrontSmallUrl) ||
+                other.imageFrontSmallUrl == imageFrontSmallUrl) &&
+            (identical(other.imageFrontUrl, imageFrontUrl) ||
+                other.imageFrontUrl == imageFrontUrl) &&
+            (identical(other.code, code) || other.code == code) &&
             (identical(other.nutriments, nutriments) ||
                 other.nutriments == nutriments));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, code, productName, brand, imageUrl, nutriments);
+  int get hashCode => Object.hash(runtimeType, productName, brands, imageUrl,
+      imageFrontSmallUrl, imageFrontUrl, code, nutriments);
 
   @override
   String toString() {
-    return 'Product(code: $code, productName: $productName, brand: $brand, imageUrl: $imageUrl, nutriments: $nutriments)';
+    return 'Product(productName: $productName, brands: $brands, imageUrl: $imageUrl, imageFrontSmallUrl: $imageFrontSmallUrl, imageFrontUrl: $imageFrontUrl, code: $code, nutriments: $nutriments)';
   }
 }
 
@@ -199,10 +239,12 @@ abstract mixin class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String code,
-      String productName,
-      String? brand,
-      String? imageUrl,
+      {@JsonKey(name: 'product_name') String productName,
+      @JsonKey(name: 'brands', fromJson: _primaryBrandFromJson) String? brands,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image_front_small_url') String? imageFrontSmallUrl,
+      @JsonKey(name: 'image_front_url') String? imageFrontUrl,
+      @JsonKey(fromJson: _codeFromJson) String code,
       Nutriments? nutriments});
 
   @override
@@ -221,29 +263,39 @@ class __$ProductCopyWithImpl<$Res> implements _$ProductCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? code = null,
     Object? productName = null,
-    Object? brand = freezed,
+    Object? brands = freezed,
     Object? imageUrl = freezed,
+    Object? imageFrontSmallUrl = freezed,
+    Object? imageFrontUrl = freezed,
+    Object? code = null,
     Object? nutriments = freezed,
   }) {
     return _then(_Product(
-      code: null == code
-          ? _self.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
       productName: null == productName
           ? _self.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String,
-      brand: freezed == brand
-          ? _self.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      brands: freezed == brands
+          ? _self.brands
+          : brands // ignore: cast_nullable_to_non_nullable
               as String?,
       imageUrl: freezed == imageUrl
           ? _self.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageFrontSmallUrl: freezed == imageFrontSmallUrl
+          ? _self.imageFrontSmallUrl
+          : imageFrontSmallUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageFrontUrl: freezed == imageFrontUrl
+          ? _self.imageFrontUrl
+          : imageFrontUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: null == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
       nutriments: freezed == nutriments
           ? _self.nutriments
           : nutriments // ignore: cast_nullable_to_non_nullable
