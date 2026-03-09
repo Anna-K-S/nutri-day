@@ -16,6 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$Product {
   String get code;
   String get productName;
+  String? get brand;
+  String? get imageUrl;
   Nutriments? get nutriments;
 
   /// Create a copy of Product
@@ -36,17 +38,21 @@ mixin _$Product {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
+            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.nutriments, nutriments) ||
                 other.nutriments == nutriments));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, code, productName, nutriments);
+  int get hashCode =>
+      Object.hash(runtimeType, code, productName, brand, imageUrl, nutriments);
 
   @override
   String toString() {
-    return 'Product(code: $code, productName: $productName, nutriments: $nutriments)';
+    return 'Product(code: $code, productName: $productName, brand: $brand, imageUrl: $imageUrl, nutriments: $nutriments)';
   }
 }
 
@@ -55,7 +61,12 @@ abstract mixin class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) _then) =
       _$ProductCopyWithImpl;
   @useResult
-  $Res call({String code, String productName, Nutriments? nutriments});
+  $Res call(
+      {String code,
+      String productName,
+      String? brand,
+      String? imageUrl,
+      Nutriments? nutriments});
 
   $NutrimentsCopyWith<$Res>? get nutriments;
 }
@@ -74,6 +85,8 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
   $Res call({
     Object? code = null,
     Object? productName = null,
+    Object? brand = freezed,
+    Object? imageUrl = freezed,
     Object? nutriments = freezed,
   }) {
     return _then(_self.copyWith(
@@ -85,6 +98,14 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _self.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String,
+      brand: freezed == brand
+          ? _self.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageUrl: freezed == imageUrl
+          ? _self.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       nutriments: freezed == nutriments
           ? _self.nutriments
           : nutriments // ignore: cast_nullable_to_non_nullable
@@ -111,7 +132,11 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
 @JsonSerializable()
 class _Product implements Product {
   const _Product(
-      {required this.code, required this.productName, this.nutriments});
+      {required this.code,
+      required this.productName,
+      this.brand,
+      this.imageUrl,
+      this.nutriments});
   factory _Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
 
@@ -119,6 +144,10 @@ class _Product implements Product {
   final String code;
   @override
   final String productName;
+  @override
+  final String? brand;
+  @override
+  final String? imageUrl;
   @override
   final Nutriments? nutriments;
 
@@ -145,17 +174,21 @@ class _Product implements Product {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
+            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.nutriments, nutriments) ||
                 other.nutriments == nutriments));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, code, productName, nutriments);
+  int get hashCode =>
+      Object.hash(runtimeType, code, productName, brand, imageUrl, nutriments);
 
   @override
   String toString() {
-    return 'Product(code: $code, productName: $productName, nutriments: $nutriments)';
+    return 'Product(code: $code, productName: $productName, brand: $brand, imageUrl: $imageUrl, nutriments: $nutriments)';
   }
 }
 
@@ -165,7 +198,12 @@ abstract mixin class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       __$ProductCopyWithImpl;
   @override
   @useResult
-  $Res call({String code, String productName, Nutriments? nutriments});
+  $Res call(
+      {String code,
+      String productName,
+      String? brand,
+      String? imageUrl,
+      Nutriments? nutriments});
 
   @override
   $NutrimentsCopyWith<$Res>? get nutriments;
@@ -185,6 +223,8 @@ class __$ProductCopyWithImpl<$Res> implements _$ProductCopyWith<$Res> {
   $Res call({
     Object? code = null,
     Object? productName = null,
+    Object? brand = freezed,
+    Object? imageUrl = freezed,
     Object? nutriments = freezed,
   }) {
     return _then(_Product(
@@ -196,6 +236,14 @@ class __$ProductCopyWithImpl<$Res> implements _$ProductCopyWith<$Res> {
           ? _self.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String,
+      brand: freezed == brand
+          ? _self.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageUrl: freezed == imageUrl
+          ? _self.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       nutriments: freezed == nutriments
           ? _self.nutriments
           : nutriments // ignore: cast_nullable_to_non_nullable

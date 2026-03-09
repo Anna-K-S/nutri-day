@@ -9,6 +9,8 @@ abstract class Product with _$Product {
   const factory Product({
     required String code,
     required String productName,
+    String? brand,
+    String? imageUrl,
     Nutriments? nutriments,
   }) = _Product;
 
