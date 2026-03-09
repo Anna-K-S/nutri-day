@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nutrition_diary/helpers/localization_helper.dart';
 import 'package:nutrition_diary/resources/icons/app_icons.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
@@ -38,7 +39,7 @@ class DiaryScreen extends StatelessWidget {
                   const SizedBox(height: AppTokens.spaceXl),
                   _EmptyState(
                     message: localization.diaryEmptyMessage,
-                    onAdd: () {},
+                    onAdd: () => context.push('/search'),
                     addLabel: localization.diaryAddMeal,
                   ),
                 ],

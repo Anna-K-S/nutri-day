@@ -188,6 +188,38 @@ class AppLocalizationsRu extends AppLocalizations {
   String get diaryAddMeal => 'Добавить приём пищи';
 
   @override
+  String get searchProductTitle => 'Поиск продукта';
+
+  @override
+  String get searchProductHint => 'Название или штрихкод';
+
+  @override
+  String get searchProductCamera => 'Камера';
+
+  @override
+  String get searchProductSearch => 'Искать';
+
+  @override
+  String get searchProductClear => 'Очистить';
+
+  @override
+  String get searchProductPrompt => 'Введите запрос или отсканируйте штрихкод';
+
+  @override
+  String get searchProductEmpty => 'Ничего не найдено';
+
+  @override
+  String get searchProductError => 'Ошибка поиска. Попробуйте снова.';
+
+  @override
+  String get searchProductScanTitle => 'Сканирование штрихкода';
+
+  @override
+  String searchProductCodeLabel(String code) {
+    return 'Код: $code';
+  }
+
+  @override
   String get monthJanuary => 'января';
 
   @override

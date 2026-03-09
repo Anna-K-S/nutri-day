@@ -188,6 +188,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get diaryAddMeal => 'Add meal';
 
   @override
+  String get searchProductTitle => 'Product search';
+
+  @override
+  String get searchProductHint => 'Name or barcode';
+
+  @override
+  String get searchProductCamera => 'Camera';
+
+  @override
+  String get searchProductSearch => 'Search';
+
+  @override
+  String get searchProductClear => 'Clear';
+
+  @override
+  String get searchProductPrompt => 'Enter a query or scan a barcode';
+
+  @override
+  String get searchProductEmpty => 'Nothing found';
+
+  @override
+  String get searchProductError => 'Search failed. Try again.';
+
+  @override
+  String get searchProductScanTitle => 'Barcode scanning';
+
+  @override
+  String searchProductCodeLabel(String code) {
+    return 'Code: $code';
+  }
+
+  @override
   String get monthJanuary => 'January';
 
   @override

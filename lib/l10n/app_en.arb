@@ -72,6 +72,23 @@
   "diaryToday": "Today",
   "diaryEmptyMessage": "No entries yet.\nAdd your first meal.",
   "diaryAddMeal": "Add meal",
+  "searchProductTitle": "Product search",
+  "searchProductHint": "Name or barcode",
+  "searchProductCamera": "Camera",
+  "searchProductSearch": "Search",
+  "searchProductClear": "Clear",
+  "searchProductPrompt": "Enter a query or scan a barcode",
+  "searchProductEmpty": "Nothing found",
+  "searchProductError": "Search failed. Try again.",
+  "searchProductScanTitle": "Barcode scanning",
+  "searchProductCodeLabel": "Code: {code}",
+  "@searchProductCodeLabel": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
 
   "monthJanuary": "January",
   "monthFebruary": "February",

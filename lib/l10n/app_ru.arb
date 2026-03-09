@@ -72,6 +72,23 @@
   "diaryToday": "Сегодня",
   "diaryEmptyMessage": "Пока записей нет.\nДобавьте первый приём пищи.",
   "diaryAddMeal": "Добавить приём пищи",
+  "searchProductTitle": "Поиск продукта",
+  "searchProductHint": "Название или штрихкод",
+  "searchProductCamera": "Камера",
+  "searchProductSearch": "Искать",
+  "searchProductClear": "Очистить",
+  "searchProductPrompt": "Введите запрос или отсканируйте штрихкод",
+  "searchProductEmpty": "Ничего не найдено",
+  "searchProductError": "Ошибка поиска. Попробуйте снова.",
+  "searchProductScanTitle": "Сканирование штрихкода",
+  "searchProductCodeLabel": "Код: {code}",
+  "@searchProductCodeLabel": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
 
   "monthJanuary": "января",
   "monthFebruary": "февраля",

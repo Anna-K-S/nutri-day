@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nutrition_diary/bloc/search_product_bloc.dart';
+import 'package:nutrition_diary/data/repository/search_product_repository.dart';
 import 'package:nutrition_diary/helpers/localization_helper.dart';
 import 'package:nutrition_diary/resources/icons/app_icons.dart';
 import 'package:nutrition_diary/screens/diary_screen/diary_screen.dart';
+import 'package:nutrition_diary/screens/search_product_screen/search_product_screen.dart';
+import 'package:nutrition_diary/service/food_search_scope.dart';
 import 'package:nutrition_diary/theme/app_theme.dart';
 import 'package:nutrition_diary/theme/theme_mode_scope.dart';
 
@@ -11,6 +16,17 @@ enum AppTab { diary, history, stats, settings }
 final GoRouter appRouter = GoRouter(
   initialLocation: '/diary',
   routes: [
+    GoRoute(
+      path: '/search',
+      builder: (context, state) {
+        return BlocProvider<SearchProductBloc>(
+          create: (_) => SearchProductBloc(
+            SearchProductRepository(FoodSearchScope.of(context)),
+          )..add(const SearchProductEvent.started()),
+          child: const SearchProductScreen(),
+        );
+      },
+    ),
     ShellRoute(
       builder: (context, state, child) => _RootShell(child: child),
       routes: [
