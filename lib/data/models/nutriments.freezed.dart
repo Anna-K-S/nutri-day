@@ -14,9 +14,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Nutriments {
+  @JsonKey(name: 'energy-kcal_100g', fromJson: _doubleFromJson)
   double get energyKcal100g;
+  @JsonKey(name: 'proteins_100g', fromJson: _doubleFromJson)
   double get proteins100g;
+  @JsonKey(name: 'fat_100g', fromJson: _doubleFromJson)
   double get fat100g;
+  @JsonKey(name: 'carbohydrates_100g', fromJson: _doubleFromJson)
   double get carbohydrates100g;
 
   /// Create a copy of Nutriments
@@ -61,9 +65,12 @@ abstract mixin class $NutrimentsCopyWith<$Res> {
       _$NutrimentsCopyWithImpl;
   @useResult
   $Res call(
-      {double energyKcal100g,
+      {@JsonKey(name: 'energy-kcal_100g', fromJson: _doubleFromJson)
+      double energyKcal100g,
+      @JsonKey(name: 'proteins_100g', fromJson: _doubleFromJson)
       double proteins100g,
-      double fat100g,
+      @JsonKey(name: 'fat_100g', fromJson: _doubleFromJson) double fat100g,
+      @JsonKey(name: 'carbohydrates_100g', fromJson: _doubleFromJson)
       double carbohydrates100g});
 }
 
@@ -109,20 +116,27 @@ class _$NutrimentsCopyWithImpl<$Res> implements $NutrimentsCopyWith<$Res> {
 @JsonSerializable()
 class _Nutriments implements Nutriments {
   const _Nutriments(
-      {required this.energyKcal100g,
-      required this.proteins100g,
-      required this.fat100g,
-      required this.carbohydrates100g});
+      {@JsonKey(name: 'energy-kcal_100g', fromJson: _doubleFromJson)
+      this.energyKcal100g = 0,
+      @JsonKey(name: 'proteins_100g', fromJson: _doubleFromJson)
+      this.proteins100g = 0,
+      @JsonKey(name: 'fat_100g', fromJson: _doubleFromJson) this.fat100g = 0,
+      @JsonKey(name: 'carbohydrates_100g', fromJson: _doubleFromJson)
+      this.carbohydrates100g = 0});
   factory _Nutriments.fromJson(Map<String, dynamic> json) =>
       _$NutrimentsFromJson(json);
 
   @override
+  @JsonKey(name: 'energy-kcal_100g', fromJson: _doubleFromJson)
   final double energyKcal100g;
   @override
+  @JsonKey(name: 'proteins_100g', fromJson: _doubleFromJson)
   final double proteins100g;
   @override
+  @JsonKey(name: 'fat_100g', fromJson: _doubleFromJson)
   final double fat100g;
   @override
+  @JsonKey(name: 'carbohydrates_100g', fromJson: _doubleFromJson)
   final double carbohydrates100g;
 
   /// Create a copy of Nutriments
@@ -174,9 +188,12 @@ abstract mixin class _$NutrimentsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double energyKcal100g,
+      {@JsonKey(name: 'energy-kcal_100g', fromJson: _doubleFromJson)
+      double energyKcal100g,
+      @JsonKey(name: 'proteins_100g', fromJson: _doubleFromJson)
       double proteins100g,
-      double fat100g,
+      @JsonKey(name: 'fat_100g', fromJson: _doubleFromJson) double fat100g,
+      @JsonKey(name: 'carbohydrates_100g', fromJson: _doubleFromJson)
       double carbohydrates100g});
 }
 
