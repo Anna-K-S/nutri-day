@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:nutrition_diary/models/off/product.dart';
-import 'package:nutrition_diary/models/off/search_response.dart';
+import 'package:nutrition_diary/data/models/product.dart';
+import 'package:nutrition_diary/data/models/search_response.dart';
 
 class FoodSearchService {
   FoodSearchService([Dio? dio])
