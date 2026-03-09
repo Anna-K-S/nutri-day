@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nutrition_diary/models/off/nutriments.dart';
+import 'package:nutrition_diary/data/models/nutriments.dart';
 
 part 'product.freezed.dart';
 part 'product.g.dart';
